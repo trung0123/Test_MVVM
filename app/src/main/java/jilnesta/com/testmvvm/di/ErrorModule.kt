@@ -9,14 +9,14 @@ import jilnesta.com.testmvvm.usecase.errors.ErrorUseCase
 import java.util.logging.ErrorManager
 import javax.inject.Singleton
 
-@Module
-@InstallIn(SingletonComponent::class)
-abstract class ErrorModule {
-    @Binds
-    @Singleton
-    abstract fun provideErrorFactoryImpl(errorManager: ErrorManager): ErrorUseCase
-
-    @Binds
-    @Singleton
-    abstract fun provideErrorMapper(errorManager: ErrorManager): ErrorMapperSource
-}
+//@Module
+//@InstallIn(SingletonComponent::class)
+//abstract class ErrorModule {
+//    @Binds
+//    @Singleton
+//    abstract fun provideErrorFactoryImpl(errorManager: ErrorManager): ErrorUseCase
+//
+//    @Binds
+//    @Singleton
+//    abstract fun provideErrorMapper(errorManager: ErrorManager): ErrorMapperSource
+//}

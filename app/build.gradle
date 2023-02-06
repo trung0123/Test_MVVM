@@ -12,13 +12,13 @@ android {
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion
     defaultConfig {
-        applicationId 'com.eltaher.task'
+        applicationId 'jilnesta.com.testmvvm'
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner "com.task.CustomTestRunner"
+        testInstrumentationRunner "jilnesta.com.testmvvm"
     }
     buildFeatures {
         viewBinding = true
@@ -34,21 +34,13 @@ android {
         }
     }
     flavorDimensions "default"
-    productFlavors {
-        dev {
-            dimension = 'default'
-            applicationIdSuffix = ".dev"
-        }
-        prod {
-            dimension = 'default'
-        }
-    }
+
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_1_8
     }
     configurations.all {
         resolutionStrategy {
@@ -56,23 +48,23 @@ android {
 
         }
     }
-    defaultConfig {
-        testInstrumentationRunnerArguments clearPackageData: 'true'
-    }
-    testOptions {
-        unitTests.returnDefaultValues = true
-    }
-    android {
-        sourceSets {
-            String sharedTestDir = 'src/sharedTest/resources'
-            test {
-                resources.srcDirs += sharedTestDir
-            }
-            androidTest {
-                resources.srcDirs += sharedTestDir
-            }
-        }
-    }
+//    defaultConfig {
+//        testInstrumentationRunnerArguments clearPackageData: 'true'
+//    }
+//    testOptions {
+//        unitTests.returnDefaultValues = true
+//    }
+//    android {
+//        sourceSets {
+//            String sharedTestDir = 'src/sharedTest/resources'
+//            test {
+//                resources.srcDirs += sharedTestDir
+//            }
+//            androidTest {
+//                resources.srcDirs += sharedTestDir
+//            }
+//        }
+//    }
 }
 
 dependencies {
@@ -83,11 +75,6 @@ dependencies {
     implementation "androidx.annotation:annotation:$annotationVersion"
     implementation "com.squareup.picasso:picasso:$picassoVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$livedata_ktx"
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
     androidTestImplementation "androidx.test.ext:junit-ktx:$androidXJunitVersion"
     /**-------------------testing libs------------------------------------------**/
     //UI Testing , AndroidJUnitRunner and JUnit Rules &Espresso dependencies
