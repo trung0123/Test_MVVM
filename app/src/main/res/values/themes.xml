@@ -25,4 +25,13 @@
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="ActionBarAppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ActionBarAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="ActionBarAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
