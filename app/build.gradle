@@ -76,8 +76,8 @@ dependencies {
     implementation "com.squareup.picasso:picasso:$picassoVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$livedata_ktx"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.0'
     androidTestImplementation "androidx.test.ext:junit-ktx:$androidXJunitVersion"
     /**-------------------testing libs------------------------------------------**/
     //UI Testing , AndroidJUnitRunner and JUnit Rules &Espresso dependencies
