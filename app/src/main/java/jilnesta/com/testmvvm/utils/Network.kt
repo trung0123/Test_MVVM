@@ -12,7 +12,8 @@ class Network @Inject constructor(val context: Context) : NetworkConnectivity {
     }
 
     override fun isConnected(): Boolean {
-        TODO("Not yet implemented")
+        val info = getNetworkInfo()
+        return info != null && info.isConnected
     }
 
 }

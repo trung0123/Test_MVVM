@@ -14,7 +14,6 @@ import jilnesta.com.testmvvm.utils.SingleEvent
 import jilnesta.com.testmvvm.utils.wrapEspressoIdlingResource
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import java.util.*
 import java.util.Locale.ROOT
 import javax.inject.Inject
 
@@ -68,9 +67,9 @@ class RecipesListViewModel @Inject constructor(private val dataRepository: DataR
 
     fun onSearchClick(recipeName: String) {
         recipesLiveDataPrivate.value?.data?.recipesList?.let {
-            if(it.isNotEmpty()) {
-                for(recipe in  it) {
-                    if(recipe.name.toLowerCase(ROOT).contains(recipeName.toLowerCase(ROOT))) {
+            if (it.isNotEmpty()) {
+                for (recipe in it) {
+                    if (recipe.name.toLowerCase(ROOT).contains(recipeName.toLowerCase(ROOT))) {
                         recipeSearchFoundPrivate.value = recipe
                         return
                     }

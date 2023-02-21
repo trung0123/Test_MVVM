@@ -5,6 +5,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import jilnesta.com.testmvvm.R
 import jilnesta.com.testmvvm.data.Resource
 import jilnesta.com.testmvvm.data.dto.recipes.Recipes
@@ -15,6 +16,7 @@ import jilnesta.com.testmvvm.utils.observe
 import jilnesta.com.testmvvm.utils.toGone
 import jilnesta.com.testmvvm.utils.toVisible
 
+@AndroidEntryPoint
 class RecipesListActivity : BaseActivity() {
 
     private lateinit var binding: ActivityRecipesListBinding
@@ -60,7 +62,7 @@ class RecipesListActivity : BaseActivity() {
     }
 
     private fun bindListData(recipes: Recipes) {
-        if(!(recipes.recipesList.isNullOrEmpty())) {
+        if(recipes.recipesList.isNotEmpty()) {
             recipesAdapter = RecipesAdapter(recipesListViewModel, recipes.recipesList)
             binding.rvRecipesList.adapter = recipesAdapter
             showDataView(true)
