@@ -1,5 +1,6 @@
 package jilnesta.com.testmvvm.ui.component.splash
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -9,6 +10,7 @@ import jilnesta.com.testmvvm.databinding.SplashLayoutBinding
 import jilnesta.com.testmvvm.ui.base.BaseActivity
 import jilnesta.com.testmvvm.ui.component.login.LoginActivity
 
+@SuppressLint("CustomSplashScreen")
 @AndroidEntryPoint
 class SplashActivity : BaseActivity() {
 

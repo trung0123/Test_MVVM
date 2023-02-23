@@ -118,7 +118,7 @@ class RecipesListActivity : BaseActivity() {
     }
 
     private fun bindListData(recipes: Recipes) {
-        if(recipes.recipesList.isNotEmpty()) {
+        if (recipes.recipesList.isNotEmpty()) {
             recipesAdapter = RecipesAdapter(recipesListViewModel, recipes.recipesList)
             binding.rvRecipesList.adapter = recipesAdapter
             showDataView(true)
@@ -128,8 +128,8 @@ class RecipesListActivity : BaseActivity() {
     }
 
     private fun showDataView(show: Boolean) {
-        binding.tvNoData.visibility = if(show) GONE else VISIBLE
-        binding.rvRecipesList.visibility = if(show) VISIBLE else GONE
+        binding.tvNoData.visibility = if (show) GONE else VISIBLE
+        binding.rvRecipesList.visibility = if (show) VISIBLE else GONE
         binding.pbLoading.toGone()
     }
 

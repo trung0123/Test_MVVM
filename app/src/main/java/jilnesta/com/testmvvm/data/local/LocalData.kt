@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import jilnesta.com.testmvvm.FAVOURITES_KEY
 import jilnesta.com.testmvvm.SHARED_PREFERENCES_FILE_NAME
+import jilnesta.com.testmvvm.USER_TOKEN
 import jilnesta.com.testmvvm.data.Resource
 import jilnesta.com.testmvvm.data.dto.login.LoginRequest
 import jilnesta.com.testmvvm.data.dto.login.LoginResponse
@@ -45,6 +46,11 @@ class LocalData @Inject constructor(val context: Context) {
         return Resource.Success(isSuccess)
     }
 
+    fun setUserToken(value: String): Resource<Boolean> {
+        val isSuccess = BasePreferences().putString(USER_TOKEN, value)
+        return Resource.Success(isSuccess)
+    }
+
     fun removeFromFavorites(id: String): Resource<Boolean> {
         val sharePref = context.getSharedPreferences(SHARED_PREFERENCES_FILE_NAME, 0)
         val set = sharePref.getStringSet(FAVOURITES_KEY, mutableSetOf<String>())?.toMutableSet()
@@ -59,6 +65,30 @@ class LocalData @Inject constructor(val context: Context) {
         editor.apply()
         val isSuccess = editor.commit()
         return Resource.Success(isSuccess)
+    }
+
+    inner class BasePreferences {
+
+        private var sharePref: SharedPreferences =
+            context.getSharedPreferences(SHARED_PREFERENCES_FILE_NAME, Context.MODE_PRIVATE)
+
+        fun getBoolean(key: String, defaultValue: Boolean): Boolean {
+            return sharePref.getBoolean(key, defaultValue)
+        }
+
+        fun putBoolean(key: String, value: Boolean) {
+            sharePref.edit().putBoolean(key, value).apply()
+        }
+
+        fun getString(key: String, defaultValue: String): String {
+            return sharePref.getString(key, defaultValue) ?: ""
+        }
+
+        fun putString(key: String, value: String): Boolean {
+            val editor = sharePref.edit()
+            editor.putString(key, value).apply()
+            return editor.commit()
+        }
     }
 
 }

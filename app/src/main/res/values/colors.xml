@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#3F51B5</color>
-    <color name="image_background">#123</color>
+    <color name="colorPrimary">#08256e</color>
+    <color name="colorPrimaryDark">#061C55</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="blue_logo">#53B8EE</color>
+    <color name="orange_logo">#f17d2c</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="gray_55">#555555</color>
+    <color name="light_gray">#D3D3D3</color>
+    <color name="lighter_gray">#EEEEEE</color>
+    <color name="gray_81">#CFCFCF</color>
+    <color name="gray_74">#BDBDBD</color>
+    <color name="gray_menu">#666666</color>
+    <color name="black">#000000</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="red">#FF0000</color>
+    <color name="red_pink">#E54646</color>
+    <color name="red_dark">#ffcc0000</color>
+    <color name="red_web">#c00</color>
+    <color name="blue_light">#43b2cf</color>
+    <color name="blue_deep_sky_2">#38ACEC</color>
+    <color name="gray">#BEBEBE</color>
+    <color name="green_light">#83C75D</color>
+    <color name="green">#32CD32</color>
+    <color name="orange_dark">#EC870E</color>
+    <color name="gray_text">#888888</color>
+    <color name="gray_2">#9C9C9C</color>
+    <color name="firebrick1">#FF3030</color>
+    <color name="firebrick1_light">#FF4949</color>
+    <color name="royal_blue">#4169E1</color>
+    <color name="progress_bar_gray">#363636</color>
+    <color name="pink">#FF68C0</color>
+    <color name="blue">#3949AB</color>
+    <color name="green_1">#29bbaa</color>
+    <color name="pink_light">#FFAEC9</color>
+    <color name="blue_light1">#00BCD4</color>
+    <color name="gray_cancel">#607d8b</color>
+
+    // user detail
+    <color name="authenticated">#FF8800</color>
+    <color name="unauthenticated">#9E9E9E</color>
+
+    // request
+    <color name="color_request_yellow">#e6bf42</color>
+    <color name="color_request_cancel">#678496</color>
 </resources>
