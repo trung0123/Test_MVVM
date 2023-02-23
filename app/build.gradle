@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
+    id 'kotlin-parcelize'
     id 'kotlin-kapt'
     id 'kotlin-platform-android'
     id 'dagger.hilt.android.plugin'
@@ -48,23 +48,26 @@ android {
 
         }
     }
-//    defaultConfig {
-//        testInstrumentationRunnerArguments clearPackageData: 'true'
-//    }
-//    testOptions {
-//        unitTests.returnDefaultValues = true
-//    }
-//    android {
-//        sourceSets {
-//            String sharedTestDir = 'src/sharedTest/resources'
-//            test {
-//                resources.srcDirs += sharedTestDir
-//            }
-//            androidTest {
-//                resources.srcDirs += sharedTestDir
-//            }
-//        }
-//    }
+    defaultConfig {
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    android {
+        sourceSets {
+            String sharedTestDir = 'src/sharedTest/resources'
+            test {
+                resources.srcDirs += sharedTestDir
+            }
+            androidTest {
+                resources.srcDirs += sharedTestDir
+            }
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -75,9 +78,6 @@ dependencies {
     implementation "androidx.annotation:annotation:$annotationVersion"
     implementation "com.squareup.picasso:picasso:$picassoVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$livedata_ktx"
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.2.0'
     androidTestImplementation "androidx.test.ext:junit-ktx:$androidXJunitVersion"
     /**-------------------testing libs------------------------------------------**/
     //UI Testing , AndroidJUnitRunner and JUnit Rules &Espresso dependencies
@@ -105,7 +105,6 @@ dependencies {
     implementation "androidx.activity:activity-ktx:$activityKtxVersion"
     // Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_viewmodels"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
     androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
     kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
