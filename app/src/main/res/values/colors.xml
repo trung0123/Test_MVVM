@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#061C55</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="image_background">#123</color>
+
     <color name="blue_logo">#53B8EE</color>
     <color name="orange_logo">#f17d2c</color>
 

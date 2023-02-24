@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import jilnesta.com.testmvvm.FAVOURITES_KEY
 import jilnesta.com.testmvvm.SHARED_PREFERENCES_FILE_NAME
+import jilnesta.com.testmvvm.USER_CODE
 import jilnesta.com.testmvvm.USER_TOKEN
 import jilnesta.com.testmvvm.data.Resource
 import jilnesta.com.testmvvm.data.dto.login.LoginRequest
@@ -47,8 +48,23 @@ class LocalData @Inject constructor(val context: Context) {
     }
 
     fun setUserToken(value: String): Resource<Boolean> {
-        val isSuccess = BasePreferences().putString(USER_TOKEN, value)
+        val isSuccess = BasePreferences(context).putString(USER_TOKEN, value)
         return Resource.Success(isSuccess)
+    }
+
+    fun getUserToken(): Resource<String> {
+        val token = BasePreferences(context).getString(USER_TOKEN, "")
+        return Resource.Success(token)
+    }
+
+    fun setUserCode(value: String): Resource<Boolean> {
+        val isSuccess = BasePreferences(context).putString(USER_CODE, value)
+        return Resource.Success(isSuccess)
+    }
+
+    fun getUserCode(): Resource<String> {
+        val code = BasePreferences(context).getString(USER_CODE, "")
+        return Resource.Success(code)
     }
 
     fun removeFromFavorites(id: String): Resource<Boolean> {
@@ -66,29 +82,4 @@ class LocalData @Inject constructor(val context: Context) {
         val isSuccess = editor.commit()
         return Resource.Success(isSuccess)
     }
-
-    inner class BasePreferences {
-
-        private var sharePref: SharedPreferences =
-            context.getSharedPreferences(SHARED_PREFERENCES_FILE_NAME, Context.MODE_PRIVATE)
-
-        fun getBoolean(key: String, defaultValue: Boolean): Boolean {
-            return sharePref.getBoolean(key, defaultValue)
-        }
-
-        fun putBoolean(key: String, value: Boolean) {
-            sharePref.edit().putBoolean(key, value).apply()
-        }
-
-        fun getString(key: String, defaultValue: String): String {
-            return sharePref.getString(key, defaultValue) ?: ""
-        }
-
-        fun putString(key: String, value: String): Boolean {
-            val editor = sharePref.edit()
-            editor.putString(key, value).apply()
-            return editor.commit()
-        }
-    }
-
 }

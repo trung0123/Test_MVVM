@@ -34,4 +34,56 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+
+
+    <string name="facebook_app_id">2144330185889347</string>
+    <string name="fb_login_protocol_scheme">fb2144330185889347</string>
+    <string name="facebook_client_token">c09592bfd2379fa86504d0018e8a5546</string>
+    <string name="pay_jp_token">pk_test_bbb70eddc6104f8407d37863</string>
+    <!--    <string name="pay_jp_token">pk_live_f0fd356ec086396d805996ee</string>-->
+
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+
+    <!-- Bottom Naviagtion -->
+    <string name="title_home">ホーム</string>
+    <string name="title_lesson_creation">レッスン作成</string>
+    <string name="title_my_schedule">マイスケジュール</string>
+    <string name="title_reservation_pay">予約状況</string>
+    <string name="title_lesson_search">レッスン検索</string>
+
+    <!-- Login -->
+    <string name="login_with_facebook">Facebookでログイン</string>
+    <string name="mail_address">メールアドレス</string>
+    <string name="password">パスワード</string>
+    <string name="login">ログイン</string>
+    <string name="register">新規登録</string>
+    <string name="email_not_valid">メールアドレスの形式が正しくありません。</string>
+    <string name="request_forgot_pass">パスワードをお忘れの方</string>
+    <string name="error_login_duplicate_email">既に使われているメールアドレスのためログインできません。</string>
+    <string name="error_login_fail">メールアドレスまたはパスワードが間違っています</string>
+
+    <!-- Register -->
+    <string name="first_name">姓</string>
+    <string name="last_name">名</string>
+    <string name="nickname">ニックネーム</string>
+    <string name="email">メールアドレス</string>
+    <string name="re_password">パスワード確認</string>
+    <string name="accept_register">利用規約に同意して新規登録</string>
+    <string name="term_of_use">利用規約</string>
+    <string name="error_register_password_length">パスワードは8文字以上のみ登録可能です。</string>
+    <string name="error_register_password_empty">パスワードを入力してください。</string>
+    <string name="error_register_repassword">確認用パスワードが一致していません。</string>
+    <string name="error_register_email">メールアドレスの形式が正しくありません。</string>
+    <string name="error_register_duplicate_email">このメールアドレスは既に登録されています</string>
+    <string name="error_register_duplicate_nickname">このニックネームは既に使用されています。</string>
+
+    <!-- ForgotPass -->
+    <string name="forgot_password">パスワード再発行</string>
+
+    <string name="see_more">さらに見る</string>
+
+    <!-- Lesson Creation -->
+    <string name="view" />
+    <string name="summary_tag" />
 </resources>

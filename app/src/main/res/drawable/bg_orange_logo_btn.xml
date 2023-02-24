@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#F1873B" />
+
+            <padding android:left="@dimen/_2sdp" android:right="@dimen/_2sdp" />
+
+            <corners android:radius="@dimen/_3sdp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="@color/orange_logo" />
+
+            <padding android:left="@dimen/_2sdp" android:right="@dimen/_2sdp" />
+
+            <corners android:radius="@dimen/_3sdp" />
+        </shape>
+    </item>
+</selector>
