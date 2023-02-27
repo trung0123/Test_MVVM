@@ -34,4 +34,8 @@
     <style name="ActionBarAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="ActionBarAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.ProgressBar">
+        <item name="colorAccent">@color/progress_bar_gray</item> <!-- Whatever color you want-->
+    </style>
 </resources>

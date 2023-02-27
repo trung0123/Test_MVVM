@@ -1,6 +1,9 @@
 package jilnesta.com.testmvvm.utils
 
+import android.app.Activity
+import android.app.AlertDialog
 import android.app.Service
+import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -40,6 +43,19 @@ fun View.toGone() {
 
 fun View.toInvisible() {
     this.visibility = View.GONE
+}
+
+fun View.showMessage(context: Context, title: String, message: String) {
+    val builder = AlertDialog.Builder(context)
+    with(builder) {
+        setTitle(title)
+        setMessage(message)
+        setCancelable(false)
+        setPositiveButton("閉じる") { dialog, _ -> dialog.cancel() }
+        if (context is Activity && !context.isFinishing) {
+            show()
+        }
+    }
 }
 
 

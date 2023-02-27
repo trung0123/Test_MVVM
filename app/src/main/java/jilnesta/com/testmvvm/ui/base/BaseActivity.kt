@@ -45,4 +45,6 @@ abstract class BaseActivity : AppCompatActivity() {
         SDK_INT >= 33 -> getParcelableArrayListExtra(key, T::class.java)
         else -> @Suppress("DEPRECATION") getParcelableArrayListExtra(key)
     }
+
+
 }

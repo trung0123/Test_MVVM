@@ -121,7 +121,7 @@ class LoginActivity : BaseActivity(), OnClickListener {
 
             override fun onCancel() {}
             override fun onError(error: FacebookException) {
-//                showErrorMessage("アカウントの証認に失敗しました")
+                showMessage("アカウントの証認に失敗しました")
             }
 
         })
