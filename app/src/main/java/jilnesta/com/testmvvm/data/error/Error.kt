@@ -4,15 +4,18 @@ package jilnesta.com.testmvvm.data.error
  * Created by AhmedEltaher
  */
 
-class Error(val code: Int, val description: String) {
+class Error(val code: String, val description: String) {
     constructor(exception: Exception) : this(code = DEFAULT_ERROR, description = exception.message
             ?: "")
 }
 
-const val NO_INTERNET_CONNECTION = -1
-const val NETWORK_ERROR = -2
-const val DEFAULT_ERROR = -3
-const val PASS_WORD_ERROR = -101
-const val USER_NAME_ERROR = -102
-const val CHECK_YOUR_FIELDS = -103
-const val SEARCH_ERROR = -104
+const val NO_INTERNET_CONNECTION = "NO_INTERNET_CONNECTION"
+const val NETWORK_ERROR = "NETWORK_ERROR"
+const val DEFAULT_ERROR = "DEFAULT_ERROR"
+
+// Login
+const val PASS_WORD_ERROR_EMPTY = "PASS_WORD_ERROR_EMPTY"
+const val USER_NAME_ERROR = "USER_NAME_ERROR"
+const val PASS_WORD_ERROR_LENGTH = "PASS_WORD_ERROR_LENGTH"
+const val DUPLICATE_EMAIL = "DUPLICATE_EMAIL"
+const val LOGIN_FAIL = "LOGIN_FAIL"

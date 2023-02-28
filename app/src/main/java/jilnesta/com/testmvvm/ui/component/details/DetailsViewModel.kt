@@ -10,7 +10,6 @@ import jilnesta.com.testmvvm.data.Resource
 import jilnesta.com.testmvvm.data.dto.recipes.RecipesItem
 import jilnesta.com.testmvvm.ui.base.BaseViewModel
 import jilnesta.com.testmvvm.utils.wrapEspressoIdlingResource
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -49,7 +48,7 @@ open class DetailsViewModel @Inject constructor(private val dataRepository: Data
             wrapEspressoIdlingResource {
                 recipePrivate.value?.id?.let {
                     dataRepository.removeFromFavorite(it).collect { isRemoved ->
-                        when(isRemoved) {
+                        when (isRemoved) {
                             is Resource.Success -> {
                                 isRemoved.data?.let {
                                     isFavouritePrivate.value = Resource.Success(!isRemoved.data)

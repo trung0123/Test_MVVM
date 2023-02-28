@@ -46,7 +46,7 @@ ext {
     activityKtxVersion= '1.2.0-rc01'
     retrofitVersion = '2.9.0'
     moshiVersion = '1.13.0'
-    okhttpInterceptorVersion = '4.9.0'
+    okhttpInterceptorVersion = '4.9.2'
     mockVersion = '1.10.5'
     annotationVersion ='1.1.0'
     glid = '4.11.0'

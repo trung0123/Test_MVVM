@@ -1,6 +1,5 @@
 package jilnesta.com.testmvvm.data
 
-import jilnesta.com.testmvvm.data.dto.login.LoginRequest
 import jilnesta.com.testmvvm.data.dto.login.LoginResponse
 import jilnesta.com.testmvvm.data.dto.recipes.Recipes
 import jilnesta.com.testmvvm.data.local.LocalData
@@ -16,15 +15,20 @@ class DataRepository @Inject constructor(
     private val localRepository: LocalData,
     private val ioDispatcher: CoroutineContext
 ) : DataRepositorySource {
+
     override suspend fun requestRecipes(): Flow<Resource<Recipes>> {
         return flow {
             emit(remoteRepository.requestRecipes())
         }.flowOn(ioDispatcher)
     }
 
-    override suspend fun doLogin(loginRequest: LoginRequest): Flow<Resource<LoginResponse>> {
+    override suspend fun doLogin(
+        userName: String,
+        passWord: String,
+        token: String?
+    ): Flow<Resource<LoginResponse>> {
         return flow {
-            emit(localRepository.doLogin(loginRequest))
+            emit(remoteRepository.doLogin(userName, passWord, token))
         }.flowOn(ioDispatcher)
     }
 

@@ -19,7 +19,6 @@ import jilnesta.com.testmvvm.RECIPE_ITEM_KEY
 import jilnesta.com.testmvvm.data.Resource
 import jilnesta.com.testmvvm.data.dto.recipes.Recipes
 import jilnesta.com.testmvvm.data.dto.recipes.RecipesItem
-import jilnesta.com.testmvvm.data.error.SEARCH_ERROR
 import jilnesta.com.testmvvm.databinding.ActivityRecipesListBinding
 import jilnesta.com.testmvvm.ui.base.BaseActivity
 import jilnesta.com.testmvvm.ui.component.details.DetailsActivity
@@ -101,7 +100,7 @@ class RecipesListActivity : BaseActivity() {
             is Resource.Success -> status.data?.let { bindListData(recipes = it) }
             is Resource.DataError -> {
                 showDataView(false)
-                status.errorCode?.let { recipesListViewModel.showToastMessage(it) }
+                status.errorCode?.let { /*recipesListViewModel.showToastMessage(it)*/ }
             }
         }
     }
@@ -156,6 +155,6 @@ class RecipesListActivity : BaseActivity() {
     }
 
     private fun showSearchError() {
-        recipesListViewModel.showToastMessage(SEARCH_ERROR)
+//        recipesListViewModel.showToastMessage(SEARCH_ERROR)
     }
 }

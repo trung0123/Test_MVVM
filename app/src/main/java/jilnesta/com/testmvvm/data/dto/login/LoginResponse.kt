@@ -1,8 +1,15 @@
 package jilnesta.com.testmvvm.data.dto.login
 
+import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+
 data class LoginResponse(
-    val id: String, val firstName: String, val lastName: String,
-    val streetName: String, val buildingNumber: String,
-    val postalCode: String, val state: String,
-    val country: String, val email: String
+    @SerializedName("token")
+    var token: String = "",
+    @SerializedName("id")
+    var id: String = "",
+    @SerializedName("code")
+    var code: String = "",
+    @SerializedName("report_state")
+    var reportState: String = ""
 )

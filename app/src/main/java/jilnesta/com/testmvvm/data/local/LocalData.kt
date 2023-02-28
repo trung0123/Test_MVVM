@@ -9,23 +9,10 @@ import jilnesta.com.testmvvm.USER_TOKEN
 import jilnesta.com.testmvvm.data.Resource
 import jilnesta.com.testmvvm.data.dto.login.LoginRequest
 import jilnesta.com.testmvvm.data.dto.login.LoginResponse
-import jilnesta.com.testmvvm.data.error.PASS_WORD_ERROR
+import jilnesta.com.testmvvm.data.error.PASS_WORD_ERROR_EMPTY
 import javax.inject.Inject
 
 class LocalData @Inject constructor(val context: Context) {
-
-    fun doLogin(loginRequest: LoginRequest): Resource<LoginResponse> {
-        if (loginRequest == LoginRequest("ahmed@ahmed.ahmed", "ahmed")) {
-            return Resource.Success(
-                LoginResponse(
-                    "123", "Ahmed", "Mahmoud",
-                    "FrunkfurterAlle", "77", "12000", "Berlin",
-                    "Germany", "ahmed@ahmed.ahmed"
-                )
-            )
-        }
-        return Resource.DataError(PASS_WORD_ERROR)
-    }
 
     fun getCachedFavorites(): Resource<Set<String>> {
         val sharePref = context.getSharedPreferences(SHARED_PREFERENCES_FILE_NAME, 0)

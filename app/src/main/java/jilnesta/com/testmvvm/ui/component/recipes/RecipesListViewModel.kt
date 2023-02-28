@@ -61,8 +61,8 @@ class RecipesListViewModel @Inject constructor(private val dataRepository: DataR
     }
 
     fun showToastMessage(errorCode: Int) {
-        val error = errorManager.getError(errorCode)
-        showToastPrivate.value = SingleEvent(error.description)
+//        val error = errorManager.getError(errorCode)
+//        showToastPrivate.value = SingleEvent(error.description)
     }
 
     fun onSearchClick(recipeName: String) {

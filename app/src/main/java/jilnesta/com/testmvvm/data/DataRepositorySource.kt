@@ -8,7 +8,9 @@ import kotlinx.coroutines.flow.Flow
 interface DataRepositorySource {
     suspend fun requestRecipes(): Flow<Resource<Recipes>>
 
-    suspend fun doLogin(loginRequest: LoginRequest): Flow<Resource<LoginResponse>>
+    suspend fun doLogin(userName: String,
+                        passWord: String,
+                        token: String?): Flow<Resource<LoginResponse>>
 
     suspend fun addToFavorite(id: String): Flow<Resource<Boolean>>
 

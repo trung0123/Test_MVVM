@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">TestMVVM</string>
     <string name="no_data">No Data</string>
     <string name="search_by_name">Search by name</string>
     <string name="search_error">there is no such recipe name</string>
