@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="jilnesta.com.testmvvm">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -17,7 +16,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:theme="@style/MyMaterialTheme"
+        android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
 
         <meta-data
@@ -32,28 +31,20 @@
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" />
 
-        <activity
-            android:name=".ui.component.details.DetailsActivity"
-            android:exported="false" />
 
         <activity
-            android:name=".ui.component.recipes.RecipesListActivity"
-            android:label="@string/title_activity_recipes">
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
-        </activity>
+            android:name=".presentation.component.main.view.MainActivity"
+            android:windowSoftInputMode="adjustResize"/>
 
         <activity
-            android:name=".ui.component.login.LoginActivity"
+            android:name=".presentation.component.login.view.LoginActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"
             android:exported="false" />
 
         <activity
-            android:name=".ui.component.splash.SplashActivity"
-            android:exported="true"
-            android:theme="@style/AppTheme">
+            android:name=".presentation.component.splash.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -62,7 +53,7 @@
         </activity>
 
         <service
-            android:name=".utils.fcm.AskbeMessagingService"
+            android:name=".presentation.fcm.AskbeMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
