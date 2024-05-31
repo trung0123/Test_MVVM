@@ -5,13 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import jilnesta.com.testmvvm.core.base.BaseViewModel
 import jilnesta.com.testmvvm.core.data.dto.Resource
 import jilnesta.com.testmvvm.core.data.error.DUPLICATE_EMAIL
 import jilnesta.com.testmvvm.core.data.error.LOGIN_FAIL
 import jilnesta.com.testmvvm.core.data.error.PASS_WORD_ERROR_EMPTY
 import jilnesta.com.testmvvm.core.data.error.PASS_WORD_ERROR_LENGTH
 import jilnesta.com.testmvvm.core.data.error.USER_NAME_ERROR
-import jilnesta.com.testmvvm.core.base.BaseViewModel
+import jilnesta.com.testmvvm.core.data.local.LocalData
 import jilnesta.com.testmvvm.presentation.component.login.model.LoginResponse
 import jilnesta.com.testmvvm.presentation.component.login.remote.repository.LoginRepository
 import jilnesta.com.testmvvm.utils.RegexUtils.isValidEmail
@@ -21,8 +22,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(private val dataRepository: LoginRepository) :
-    BaseViewModel() {
+class LoginViewModel @Inject constructor(
+    private val dataRepository: LoginRepository,
+    private val localRepository: LocalData
+) : BaseViewModel() {
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     private val loginLiveDataPrivate = MutableLiveData<Resource<LoginResponse>>()
@@ -49,10 +52,15 @@ class LoginViewModel @Inject constructor(private val dataRepository: LoginReposi
             wrapEspressoIdlingResource {
                 dataRepository.doLogin(userName, passWord, token).collect {
                     loginLiveDataPrivate.value = it
+                    saveUser(it.data)
                 }
             }
         }
+    }
 
+    private fun saveUser(response: LoginResponse?) {
+        localRepository.setUserToken(response?.token ?: "")
+        localRepository.setUserCode(response?.code ?: "")
     }
 
     fun showDialogMessageError(errorCode: String) {

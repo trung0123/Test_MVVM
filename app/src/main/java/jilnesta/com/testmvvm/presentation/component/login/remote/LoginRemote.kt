@@ -30,23 +30,4 @@ class LoginRemote @Inject constructor(
             }
         }
     }
-
-//    private suspend fun processCall1(responseCall: suspend () -> Response<*>): Any? {
-//        return try {
-//            val response = responseCall.invoke()
-//            val responseCode = response.code()
-//            if (response.isSuccessful) {
-//                val baseResponse = response.body() as BaseResponse<*>
-//                if(baseResponse.success) {
-//                    baseResponse.data
-//                } else {
-//                    baseResponse.code
-//                }
-//            } else {
-//                responseCode
-//            }
-//        } catch (e: IOException) {
-//            NETWORK_ERROR
-//        }
-//    }
 }
