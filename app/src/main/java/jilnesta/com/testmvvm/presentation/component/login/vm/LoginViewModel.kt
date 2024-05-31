@@ -7,16 +7,16 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import jilnesta.com.testmvvm.core.base.BaseViewModel
 import jilnesta.com.testmvvm.core.data.dto.Resource
-import jilnesta.com.testmvvm.core.data.error.DUPLICATE_EMAIL
-import jilnesta.com.testmvvm.core.data.error.LOGIN_FAIL
-import jilnesta.com.testmvvm.core.data.error.PASS_WORD_ERROR_EMPTY
-import jilnesta.com.testmvvm.core.data.error.PASS_WORD_ERROR_LENGTH
-import jilnesta.com.testmvvm.core.data.error.USER_NAME_ERROR
 import jilnesta.com.testmvvm.core.data.local.LocalData
 import jilnesta.com.testmvvm.presentation.component.login.model.LoginResponse
 import jilnesta.com.testmvvm.presentation.component.login.remote.repository.LoginRepository
+import jilnesta.com.testmvvm.utils.DUPLICATE_EMAIL
+import jilnesta.com.testmvvm.utils.LOGIN_FAIL
+import jilnesta.com.testmvvm.utils.PASSWORD_ERROR_EMPTY
+import jilnesta.com.testmvvm.utils.PASSWORD_ERROR_LENGTH
 import jilnesta.com.testmvvm.utils.RegexUtils.isValidEmail
 import jilnesta.com.testmvvm.utils.SingleEvent
+import jilnesta.com.testmvvm.utils.USERNAME_ERROR
 import jilnesta.com.testmvvm.utils.wrapEspressoIdlingResource
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -33,17 +33,17 @@ class LoginViewModel @Inject constructor(
 
     fun login(userName: String, passWord: String, token: String?) {
         if (!isValidEmail(userName)) {
-            loginLiveDataPrivate.value = Resource.DataError(USER_NAME_ERROR)
+            loginLiveDataPrivate.value = Resource.DataError(USERNAME_ERROR)
             return
         }
 
         if (passWord.isEmpty()) {
-            loginLiveDataPrivate.value = Resource.DataError(PASS_WORD_ERROR_EMPTY)
+            loginLiveDataPrivate.value = Resource.DataError(PASSWORD_ERROR_EMPTY)
             return
         }
 
         if (passWord.length < 8) {
-            loginLiveDataPrivate.value = Resource.DataError(PASS_WORD_ERROR_LENGTH)
+            loginLiveDataPrivate.value = Resource.DataError(PASSWORD_ERROR_LENGTH)
             return
         }
 
@@ -65,15 +65,15 @@ class LoginViewModel @Inject constructor(
 
     fun showDialogMessageError(errorCode: String) {
         when (errorCode) {
-            USER_NAME_ERROR -> {
+            USERNAME_ERROR -> {
                 showDialogPrivate.value = SingleEvent("メールアドレスの形式が正しくありません。")
             }
 
-            PASS_WORD_ERROR_EMPTY -> {
+            PASSWORD_ERROR_EMPTY -> {
                 showDialogPrivate.value = SingleEvent("パスワードを入力してください。")
             }
 
-            PASS_WORD_ERROR_LENGTH -> {
+            PASSWORD_ERROR_LENGTH -> {
                 showDialogPrivate.value = SingleEvent("パスワードは8文字以上のみ登録可能です。")
             }
 

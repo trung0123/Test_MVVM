@@ -20,7 +20,7 @@ class LoginRemote @Inject constructor(
     ): Resource<LoginResponse> {
         val recipesService = serviceGenerator.createService(LoginService::class.java)
         return when (val response =
-            processCall1 { recipesService.login(userName, passWord, token) }) {
+            processCall { recipesService.login(userName, passWord, token) }) {
             is LoginResponse -> {
                 Resource.Success(data = response)
             }

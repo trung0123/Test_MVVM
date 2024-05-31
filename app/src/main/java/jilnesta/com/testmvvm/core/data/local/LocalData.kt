@@ -1,12 +1,9 @@
 package jilnesta.com.testmvvm.core.data.local
 
 import android.content.Context
-import android.content.SharedPreferences
-import jilnesta.com.testmvvm.utils.FAVOURITES_KEY
-import jilnesta.com.testmvvm.utils.SHARED_PREFERENCES_FILE_NAME
+import jilnesta.com.testmvvm.core.data.dto.Resource
 import jilnesta.com.testmvvm.utils.USER_CODE
 import jilnesta.com.testmvvm.utils.USER_TOKEN
-import jilnesta.com.testmvvm.core.data.dto.Resource
 import javax.inject.Inject
 
 class LocalData @Inject constructor(val context: Context) {

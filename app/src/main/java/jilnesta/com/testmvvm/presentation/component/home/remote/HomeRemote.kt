@@ -16,7 +16,7 @@ class HomeRemote @Inject constructor(
     override suspend fun getHome(): Resource<DataHome> {
         val recipesService = serviceGenerator.createService(HomeService::class.java)
         return when (val response =
-            processCall1 { recipesService.getHome() }) {
+            processCall { recipesService.getHome() }) {
             is DataHome -> {
                 Resource.Success(data = response)
             }
