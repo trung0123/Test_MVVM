@@ -2,9 +2,10 @@ package jilnesta.com.testmvvm.core.data.local
 
 import android.content.Context
 import jilnesta.com.testmvvm.core.data.dto.Resource
-import jilnesta.com.testmvvm.utils.USER_CODE
-import jilnesta.com.testmvvm.utils.USER_TOKEN
 import javax.inject.Inject
+
+const val USER_TOKEN = "user_token"
+const val USER_CODE = "user_code"
 
 class LocalData @Inject constructor(val context: Context) {
 

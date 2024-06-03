@@ -10,7 +10,6 @@ import jilnesta.com.testmvvm.core.data.dto.Resource
 import jilnesta.com.testmvvm.core.data.local.LocalData
 import jilnesta.com.testmvvm.presentation.component.login.model.LoginResponse
 import jilnesta.com.testmvvm.presentation.component.login.remote.repository.LoginRepository
-import jilnesta.com.testmvvm.utils.DUPLICATE_EMAIL
 import jilnesta.com.testmvvm.utils.LOGIN_FAIL
 import jilnesta.com.testmvvm.utils.PASSWORD_ERROR_EMPTY
 import jilnesta.com.testmvvm.utils.PASSWORD_ERROR_LENGTH
@@ -52,15 +51,14 @@ class LoginViewModel @Inject constructor(
             wrapEspressoIdlingResource {
                 dataRepository.doLogin(userName, passWord, token).collect {
                     loginLiveDataPrivate.value = it
-                    saveUser(it.data)
                 }
             }
         }
     }
 
-    private fun saveUser(response: LoginResponse?) {
-        localRepository.setUserToken(response?.token ?: "")
-        localRepository.setUserCode(response?.code ?: "")
+    fun saveUser(response: LoginResponse) {
+        localRepository.setUserToken(response.token)
+        localRepository.setUserCode(response.code)
     }
 
     fun showDialogMessageError(errorCode: String) {
@@ -75,11 +73,6 @@ class LoginViewModel @Inject constructor(
 
             PASSWORD_ERROR_LENGTH -> {
                 showDialogPrivate.value = SingleEvent("パスワードは8文字以上のみ登録可能です。")
-            }
-
-            DUPLICATE_EMAIL -> {
-                showDialogPrivate.value =
-                    SingleEvent("既に使われているメールアドレスのためログインできません。")
             }
 
             LOGIN_FAIL -> {

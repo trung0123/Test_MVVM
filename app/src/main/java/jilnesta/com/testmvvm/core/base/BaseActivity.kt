@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import jilnesta.com.testmvvm.core.data.local.LocalData
+import jilnesta.com.testmvvm.presentation.component.login.remote.repository.LoginRepository
+import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
 

@@ -12,7 +12,6 @@ abstract class BaseViewModel : ViewModel() {
     val showDialog: LiveData<SingleEvent<Any>> get() = showDialogPrivate
 
     fun handleApiError(errorCode: String) {
-
         when (errorCode) {
             "400", "401" -> {
                 /*openActivityOnTokenExpire()*/

@@ -2,7 +2,8 @@ package jilnesta.com.testmvvm.core.data.local
 
 import android.content.Context
 import android.content.SharedPreferences
-import jilnesta.com.testmvvm.utils.SHARED_PREFERENCES_FILE_NAME
+
+const val SHARED_PREFERENCES_FILE_NAME = "task"
 
 class BasePreferences(val context: Context) {
 
@@ -31,7 +32,7 @@ class BasePreferences(val context: Context) {
         return sharePref.getInt(key, defaultValue)
     }
 
-    fun putInt(key: String, value: Int) : Boolean {
+    fun putInt(key: String, value: Int): Boolean {
         val editor = sharePref.edit()
         editor.putInt(key, value)
         return editor.commit()
@@ -41,7 +42,7 @@ class BasePreferences(val context: Context) {
         return sharePref.getLong(key, defaultValue)
     }
 
-    fun putLong(key: String, value: Long) : Boolean {
+    fun putLong(key: String, value: Long): Boolean {
         val editor = sharePref.edit()
         editor.putLong(key, value)
         return editor.commit()
@@ -51,7 +52,7 @@ class BasePreferences(val context: Context) {
         return sharePref.getFloat(key, defaultValue)
     }
 
-    fun putFloat(key: String, value: Float) : Boolean {
+    fun putFloat(key: String, value: Float): Boolean {
         val editor = sharePref.edit()
         editor.putFloat(key, value)
         return editor.commit()

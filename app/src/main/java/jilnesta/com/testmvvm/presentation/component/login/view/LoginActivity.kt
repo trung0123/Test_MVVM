@@ -137,6 +137,7 @@ class LoginActivity : BaseActivity(), OnClickListener {
             is Resource.Success -> status.data?.let {
                 DialogUtil.hideLoading()
                 navigateToMainScreen()
+                loginViewModel.saveUser(it)
             }
 
             is Resource.DataError -> {
